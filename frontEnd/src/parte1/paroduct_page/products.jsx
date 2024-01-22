@@ -1,15 +1,33 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import SearchCreate from "./components/productList/searchCreate";
 import Category from "./components/productList/category";
 import ProductsList from "./components/productList/productsLIst";
-import Header from "./components/create_edit/header";
-import Choose from "./components/create_edit/choose";
-import FormProduct from "./components/create_edit/formProduct";
+import Edit from "./components/create_edit/edit";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function Products(){
 
+
+
+    const [productsData ,setProductsData] = useState([])
+
     const products = useRef(null)
-    const edit = useRef(null)
+    const [showEdit,setShowEdit] = useState(null)
+    
+    const [infoProduct,setInfoProduct] =useState({
+        thumbnail:'',
+        title:'',
+        description:'',
+        category:'',
+        stock:'',
+        pricePurchase:'',
+        priceTaxes:'',
+        price:''
+    })
+
+    const [img, setImg] = useState('');
+
 
     const [active,setActive] = useState({
         infoProduct:"active",
@@ -17,32 +35,69 @@ function Products(){
         
     })
 
-    const onclick1 = ()=>{
+    const onclick1 = (e)=>{
+        setShowEdit(e.currentTarget.getAttribute('name'))
         products.current.classList.remove('active');
-        edit.current.classList.add('active')
-        console.log(products)
+
+
     }
 
     const onclick2 = ()=>{
+        setShowEdit(null)
+
         products.current.classList.add('active');
-        edit.current.classList.remove('active')
-        console.log(products)
+
+        setInfoProduct({
+            thumbnail:'',
+            title:'',
+            description:'',
+            category:'',
+            stock:'',
+            pricePurchase:'',
+            priceTaxes:'',
+            price:''
+        })
+        setImg('')
+
     }
 
 
+
+    useEffect(()=>{
+        getData()
+    },[])
+
+
+    const getData = async ()=>{
+        const resp = await axios.get('https://dummyjson.com/products')
+        setProductsData(resp.data.products)
+    }
+
+    
+
+    const onshow=(e,product)=>{
+        onclick1(e)   
+        setInfoProduct(product)
+        setImg(product.thumbnail)
+    }
+
     return (
         <div className="productsContainer">
-            <div ref={products} className="products active">
+            <div ref={products} className='products active'>
                 <SearchCreate onclick1={onclick1} />
                 <Category />
-                <ProductsList />
+                <ProductsList productsData={productsData} onshow={onshow} />
             </div>
 
-            <div ref={edit} className="edit">
-                <Header onclick2 = {onclick2} />
-                <Choose active={active} />
-                <FormProduct active={active} setActive={setActive}  />
-            </div>
+            {showEdit === 'create' ? (
+                <Edit infoProduct={infoProduct} img={img} setImg={setImg} setInfoProduct={setInfoProduct}  active={active} title={'Create Products'} setActive={setActive} onclick2={onclick2}/>
+            ) :(showEdit === 'edit'?
+                <Edit  infoProduct={infoProduct} img={img} setImg={setImg}   setInfoProduct={setInfoProduct} active={active} title={'Edit Products'} setActive={setActive} onclick2={onclick2}/>
+             :null)}
+
+           
+
+
         </div>
     )
 }

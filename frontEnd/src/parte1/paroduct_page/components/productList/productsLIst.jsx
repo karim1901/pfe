@@ -2,19 +2,8 @@ import React, { useEffect, useState } from "react";
 import ProductItem from "./productsItem";
 import axios from "axios";
 
-function ProductsList(){
+function ProductsList({onshow,productsData}){
 
-    const [products ,setProducts] = useState([])
-
-    useEffect(()=>{
-        getData()
-    },[])
-
-
-    const getData = async ()=>{
-        const resp = await axios.get('https://dummyjson.com/products')
-        setProducts(resp.data.products)
-    }
 
 
 
@@ -22,7 +11,7 @@ function ProductsList(){
         <div className="productsList">
 
             {
-            products.map(product => <ProductItem product={product} key={product.id} />)
+            productsData.map(product => <ProductItem product={product} key={product.id} onshow={onshow} />)
             }
             
 

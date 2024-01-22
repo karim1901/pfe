@@ -5,27 +5,27 @@ import { NavLink } from "react-router-dom";
 
 function Menu(){
 
-    const [activeLink, setActiveLink] = useState('dashboard');
-    const dashboardRef = useRef(null);
-    const productsRef = useRef(null);
+    // const [activeLink, setActiveLink] = useState('dashboard');
+    // const dashboardRef = useRef(null);
+    // const productsRef = useRef(null);
   
-    useEffect(() => {
-      if (dashboardRef.current && productsRef.current) {
-        dashboardRef.current.classList.toggle('active', activeLink === 'dashboard');
-        productsRef.current.classList.toggle('active', activeLink === 'products');
-      }
-    }, [activeLink]);
+    // useEffect(() => {
+    //   if (dashboardRef.current && productsRef.current) {
+    //     dashboardRef.current.classList.toggle('active', activeLink === 'dashboard');
+    //     productsRef.current.classList.toggle('active', activeLink === 'products');
+    //   }
+    // }, [activeLink]);
 
 
     return <div className="menu">
         <ul>
-            <NavLink ref={dashboardRef} to='/parte1/dashboard' onClick={() => setActiveLink('dashboard')}>
+            <NavLink  to='/parte1/dashboard' >
             <li>
                 {dashboard}
                 <p>Dashboard</p>
             </li>
             </NavLink>
-            <NavLink ref={productsRef} to='/parte1/products' onClick={() => setActiveLink('products')}>
+            <NavLink  to='/parte1/products' >
             <li>
                 <ion-icon name="cube-outline"></ion-icon>
                 <p>Products</p>
@@ -41,10 +41,13 @@ function Menu(){
                 </svg>
                 <p>Analtics</p>
             </li>
-            <li>
-                <ion-icon name="people-circle-outline"></ion-icon>
-                <p>Employees</p>
-            </li>
+            <NavLink to='/parte1/employees' >
+                <li>
+                    <ion-icon name="people-circle-outline"></ion-icon>
+                    <p>Employees</p>
+                </li>
+            </NavLink>
+
             <li>
                 <ion-icon name="settings-outline"></ion-icon>
                 <p>Settings</p>

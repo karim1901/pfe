@@ -5,6 +5,7 @@ import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import IndexParte2 from './parte2'
 import Dashboard from './parte1/dashboard_page/dashboard'
 import Products from './parte1/paroduct_page/products'
+import Employees from './parte1/employee_page/employees'
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
               <Route index element={<Dashboard />} />
               <Route path='/parte1/dashboard'   element={<Dashboard />} />
               <Route path='/parte1/products'  element={<Products />} />
+              <Route path='/parte1/employees'  element={<Employees />} />
+
+
             </Route>
 
 

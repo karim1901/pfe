@@ -192,7 +192,46 @@ body{
 
 
 
-.productsContainer{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.productsContainer  {
     display: flex;
     min-width: 1500px;
 }
@@ -206,6 +245,8 @@ body{
     padding: 30px;
     overflow: hidden;
 }
+
+
 
 .productsContainer .products.active{
     width: 100%;
@@ -436,12 +477,12 @@ body{
     margin: 0 5px;
     border-radius: 30px;
     padding: 30px;
-    display: none;
+    /* display: none; */
 }
 
-.productsContainer .edit.active{
+/* .productsContainer .edit.active{
     display: block;
-}
+} */
 
 
 .productsContainer .edit .header{
@@ -571,6 +612,9 @@ body{
 .productsContainer .edit .formProduct .infoForm .inputItem textarea{
     height: 100px;
     resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding: 10px;
 }
 
 .productsContainer .edit .formProduct .infoForm .inputItem p{
@@ -582,18 +626,17 @@ body{
 }
 
 
-.productsContainer .edit .formProduct .infoForm .inputItem  input:focus  + p {
+.productsContainer .edit .formProduct .infoForm .inputItem .title , 
+.productsContainer .edit .formProduct .infoForm .inputItem .category,
+.productsContainer .edit .formProduct .infoForm .inputItem .quantity,
+.productsContainer .edit .formProduct .infoForm .inputItem .description,
+.productsContainer .edit .formProduct .infoForm .inputItem .price {
     top: -10px;
     background-color: white;
     padding: 0 5px;
     color: black;
 }
 
-.productsContainer .edit .formProduct .infoForm .inputItem  textarea:focus  + p{
-    top: -10px;
-    background-color: white;
-    padding: 0 5px;
-}
 
 
 .productsContainer .edit .formProduct .infoForm .btns{
@@ -629,19 +672,20 @@ body{
 
 .productsContainer .edit .formProduct .toEmployee{
     background-color: rgb(255, 255, 255);
+    height: 70vh;
 }
 
 .productsContainer .edit .formProduct .toEmployee .search{
     position: relative;
-    margin-bottom: 20px;
     width: 100%;
     overflow: hidden;
+    height: 6vh;
 }
 
 
 .productsContainer .edit .formProduct .toEmployee .search input{
     width: 100%;
-    height: 40px ;
+    height: 100% ;
     border: none;
     border-radius: 20px;
     padding-left: 45px;
@@ -664,9 +708,11 @@ body{
 
 
 .productsContainer .edit .formProduct .toEmployee .employees{
+    margin-top:4vh ;
     height: 50vh ;
     overflow: hidden;
     overflow-y: scroll;
+    background-color: rgb(255, 255, 255);
 }
 
 
@@ -702,10 +748,11 @@ body{
 }
 
 .productsContainer .edit .formProduct .toEmployee .btnsEmp{
-    height: 11vh;
+    height: 10vh;
     display: flex;
     align-items: end;
     justify-content: space-around;
+    background-color: rgb(255, 255, 255);
 }
 
 .productsContainer .edit .formProduct .toEmployee .btnsEmp button{
@@ -723,4 +770,106 @@ body{
 
 .productsContainer .edit .formProduct .toEmployee .btnsEmp button p{
     margin: 0 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.employeesContainer{
+    display: flex;
+    min-width: 1500px;
+}
+
+
+.employeesContainer .employees{
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    height: 100vh;
+    border-radius: 30px;
+    margin-left: 5px;
+    padding: 30px;
+    overflow: hidden;
+}
+
+
+.employeesContainer .employees .searchCreate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+.employeesContainer .employees .searchCreate p{
+    font-size: 25px;
+}
+
+.employeesContainer .employees .searchCreate .searchAdd{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.employeesContainer .employees .searchCreate .searchAdd ion-icon{
+    position: absolute;
+    font-size: 25px;
+    top: calc(100px + (40px - 25px)/2);
+    margin-left: 10px;
+    color: gray;
+}
+
+
+
+
+.employeesContainer .employees .searchCreate .searchAdd input{
+    width: 350px;
+    height: 40px ;
+    border: none;
+    border-radius: 20px;
+    padding-left: 45px;
+    background-color: rgb(236, 243, 250);
+    font-size: 17px;
+    margin-right: 100px;
+    color: gray;
+    outline: none;
+}
+
+.employeesContainer .employees .searchCreate .searchAdd button{
+    padding: 0 25px;
+    font-size: 17px;
+    border: 2px solid ;
+    border-radius: 20px ;
+    background-color: white;
+}
+
+.employeesContainer .employees .searchCreate .searchAdd button::before{
+    position: absolute;
+    top: 100px;
+    margin-left: -60px;
+    content: "";
+    width: 1px;
+    height: 40px;
+    background-color: rgb(210, 210, 210);
 }

@@ -10,7 +10,7 @@ function SearchCreate({onclick1}){
                     <ion-icon name="search-outline"></ion-icon>
                     <input type="text" placeholder="Search Product..."/>
                 </div>
-                <button onClick={onclick1}>Add New Product + </button>
+                <button name="create" onClick={onclick1}>Add New Product + </button>
             </div>
 
         </div>

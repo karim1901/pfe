@@ -1,9 +1,9 @@
 import React from "react";
 
-function Header({onclick2}){
+function Header({onclick2,title}){
     return (
         <div className="header">
-            <p>Create Products</p>
+            <p>{title}</p>
             <button onClick={onclick2}>
                 <p>See Full View </p>
                 <ion-icon name="arrow-forward-outline" role="img" class="md hydrated"></ion-icon>

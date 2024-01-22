@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import InfoForm from "./infoForm";
 import ToEmployee from "./toEmployee";
 
-function FormProduct({active,setActive}) {
-  const [img, setImg] = useState('');
+function FormProduct({active,setActive,img,setImg,infoProduct,setInfoProduct}) {
+
   const [next,setNext]= useState(null)
 
 
-  const [nextEmp ,setNextEmp]=useState(null)
-
 
   const handleFileChange = (e) => {
-    console.log(e.target.files[0])
     const file = e.target.files[0];
 
     if (file) {
@@ -33,10 +30,10 @@ function FormProduct({active,setActive}) {
         <ion-icon name="arrow-forward-outline" role="img" class="md hydrated"></ion-icon>
       </button>}
 
-      {next=='nextInfo' && <InfoForm setNext={setNext} active={active}  setActive={setActive}/>}
+      {next=='nextInfo' && <InfoForm setNext={setNext}  active={active} setInfoProduct={setInfoProduct} infoProduct={infoProduct}  setActive={setActive}/>}
 
 
-      {next=='nextEmp' && <ToEmployee setNext={setNext} active={active}  setActive={setActive}/>}
+      {next=='nextEmp' && <ToEmployee setNext={setNext} active={active}   setActive={setActive}/>}
 
 
 
