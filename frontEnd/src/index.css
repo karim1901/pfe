@@ -125,6 +125,11 @@ body{
     font-size: 25px;
 }
 
+.dashboard .cards a{
+    text-decoration: none;
+    color: black;
+}
+
 .dashboard .cards{
     display: grid;
     grid-template-columns: repeat(4 , 1fr);
@@ -180,7 +185,113 @@ body{
     width: 65%;
     border-radius: 25px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.126);
+    overflow: hidden;
 }
+
+
+
+.dashboard .best .bestProducts .bestProductList{
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+.dashboard .best .bestProducts .bestProductList table,
+.dashboard .best .bestEmployees .bestEmployeeList table{
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.dashboard .best .bestProducts .bestProductList table tr,
+.dashboard .best .bestEmployees .bestEmployeeList table tr{
+    height: 50px;
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.dashboard .best .bestProducts .bestProductList table thead tr th,
+.dashboard .best .bestEmployees .bestEmployeeList table thead tr th{
+    font-size: 20px;
+    font-weight: 100;
+    text-align: start;
+    background-color: rgb(255, 255, 255);
+}
+
+.dashboard .best .bestProducts .bestProductList table thead tr th:first-child{
+    width: 30%;
+    padding-left: 15px;
+    
+}
+
+.dashboard .best .bestProducts .bestProductList table thead tr th:nth-child(3),
+.dashboard .best .bestProducts .bestProductList table tbody tr td:nth-child(3){
+    width: 20%;
+}
+
+.dashboard .best .bestProducts .bestProductList table thead tr th:nth-child(4),
+.dashboard .best .bestProducts .bestProductList table tbody tr td:nth-child(4){
+    width: 15%;
+}
+
+.dashboard .best .bestProducts .bestProductList table thead tr th:last-child,
+.dashboard .best .bestProducts .bestProductList table tbody tr td:last-child{
+    width: 20%;
+}
+
+.dashboard .best .bestProducts .bestProductList table tbody,
+.dashboard .best .bestEmployees .bestEmployeeList table tbody{
+    overflow-y: scroll;
+    display: block;
+    height: 35vh;
+}
+
+.dashboard .best .bestProducts .bestProductList table tbody::-webkit-scrollbar,
+.dashboard .best .bestEmployees .bestEmployeeList table tbody::-webkit-scrollbar{
+    width: 2px;
+    background-color: white;
+}
+
+
+.dashboard .best .bestProducts .bestProductList table tbody tr td:first-child{
+    align-items: center;
+    padding: 5px 0 5px 15px;
+    width: 30%;
+}
+
+.dashboard .best .bestProducts .bestProductList table tbody tr td:first-child .imgProd,
+.dashboard .best .bestEmployees .bestEmployeeList table tbody tr td:first-child .name{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dashboard .best .bestProducts .bestProductList table tbody tr td:first-child .imgProd img{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.dashboard .best .bestProducts .bestProductList table tbody tr td:first-child .imgProd p{
+    font-size: 16px;
+    margin: 0;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
 
 .dashboard .best .bestEmployees{
     background-color: white;
@@ -188,6 +299,34 @@ body{
     margin-left: 20px;
     border-radius: 25px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.126);
+    overflow: hidden;
+}
+
+.dashboard .best .bestEmployees .bestEmployeeList table thead tr th:first-child{
+    padding-left: 15px;
+    width: 70%;
+}
+
+.dashboard .best .bestEmployees .bestEmployeeList table tbody tr td:first-child{
+    padding-left: 10px;
+    width: 70%;
+}
+
+.dashboard .best .bestEmployees .bestEmployeeList table tbody tr td .name p:first-child{
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard .best .bestEmployees .bestEmployeeList table tbody tr td:first-child .name p{
+    font-size: 16px;
+    margin: 0;
+    margin-left: 10px;
 }
 
 
@@ -202,15 +341,233 @@ body{
 
 
 
+.orders,
+.confirmed,
+.cancelling{
+    background-color: rgb(255, 255, 255);
+    min-width: 1500px;
+    height: 100vh;
+    margin: 5px;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.orders p,
+.confirmed p,
+.cancelling p{
+    font-size: 25px;
+}
+
+
+.navCards{
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+}
+
+.navCards a{
+    text-decoration: none;
+    color: black;
+}
+
+.navCards .card{
+    display: flex;
+    align-items: center;
+}
+
+
+
+.orders .ListOrder,
+.confirmed .ListOrder,
+.cancelling .ListOrder{
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 5px;
+    padding: 5px;
+    height: calc(100vh - 190px);
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: rgb(245, 250, 255);
+}
+
+.orders .ListOrder::-webkit-scrollbar,
+.confirmed .ListOrder::-webkit-scrollbar,
+.cancelling .ListOrder::-webkit-scrollbar{
+    width: 2px;
+    background-color: white;
+}
+
+.orders .ListOrder .orderItem,
+.confirmed .ListOrder .orderItem{
+    display: flex;
+    padding: 10px;
+    background-color: #EEFCF8;
+}
+.cancelling .ListOrder .orderItem{
+    display: flex;
+    padding: 10px;
+    background-color: #fbe5e5;
+}
+
+.orders .ListOrder .orderItem p,
+.confirmed .ListOrder .orderItem p,
+.cancelling .ListOrder .orderItem p{
+    font-size: 16px;
+    margin: 0;
+}
+
+.orders .ListOrder .orderItem .productInfo,
+.confirmed .ListOrder .orderItem .productInfo,
+.cancelling .ListOrder .orderItem .productInfo{
+    width: 55%;
+    display: flex;
+}
+
+.orders .ListOrder .orderItem .productInfo .img,
+.confirmed .ListOrder .orderItem .productInfo .img,
+.cancelling .ListOrder .orderItem .productInfo .img{
+    width: 150px;
+    height: 150px;
+}
+
+.orders .ListOrder .orderItem .productInfo .img img,
+.confirmed .ListOrder .orderItem .productInfo .img img,
+.cancelling .ListOrder .orderItem .productInfo .img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.orders .ListOrder .orderItem .productInfo .info,
+.confirmed .ListOrder .orderItem .productInfo .info,
+.cancelling .ListOrder .orderItem .productInfo .info{
+    margin-left: 10px;
+    width: calc((100% - 150px));
+}
+
+.orders .ListOrder .orderItem .productInfo .info .title,
+.confirmed .ListOrder .orderItem .productInfo .info .title,
+.cancelling .ListOrder .orderItem .productInfo .info .title{
+    font-size: 18px;
+    margin: 10px 0 20px 0;
+}
+
+.orders .ListOrder .orderItem .productInfo .info .price,
+.confirmed .ListOrder .orderItem .productInfo .info .price,
+.cancelling .ListOrder .orderItem .productInfo .info .price{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.orders .ListOrder .orderItem .productInfo .info .dataButton,
+.confirmed .ListOrder .orderItem .productInfo .info .dataButton,
+.cancelling .ListOrder .orderItem .productInfo .info .dataButton{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.orders .ListOrder .orderItem .productInfo .info .dataButton .dataQuantity p,
+.confirmed .ListOrder .orderItem .productInfo .info .dataButton .dataQuantity p,
+.cancelling .ListOrder .orderItem .productInfo .info .dataButton .dataQuantity p{
+    font-size: 14px;
+}
+
+.orders .ListOrder .orderItem .productInfo .info .dataButton .btns,
+.confirmed .ListOrder .orderItem .productInfo .info .dataButton .btns,
+.cancelling .ListOrder .orderItem .productInfo .info .dataButton .btns{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.orders .ListOrder .orderItem .productInfo .info .dataButton .btns button,
+.confirmed .ListOrder .orderItem .productInfo .info .dataButton .btns button,
+.cancelling .ListOrder .orderItem .productInfo .info .dataButton .btns button{
+    width: 100px;
+    height: 35px;
+    border: 1px solid;
+    border-radius: 25px;
+    background-color: white;
+}
+.orders .ListOrder .orderItem .productInfo .info .dataButton .btns button:last-child,
+.confirmed .ListOrder .orderItem .productInfo .info .dataButton .btns button:last-child,
+.cancelling .ListOrder .orderItem .productInfo .info .dataButton .btns button:last-child{
+    background-color: black;
+    color: white;
+    
+}
 
 
 
 
 
 
+.orders .ListOrder .orderItem .customerInfo,
+.confirmed .ListOrder .orderItem .customerInfo,
+.cancelling .ListOrder .orderItem .customerInfo{
+    border-left: 1px dashed gray;
+    padding-left: 15px;
+    position: relative;
+    width: calc((100% - 150px)/2);
+}
 
+.orders .ListOrder .orderItem .customerInfo span,
+.confirmed .ListOrder .orderItem .customerInfo span,
+.cancelling .ListOrder .orderItem .customerInfo span{
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
 
+.orders .ListOrder .orderItem .customerInfo span svg,
+.confirmed .ListOrder .orderItem .customerInfo span svg,
+.cancelling .ListOrder .orderItem .customerInfo span svg{
+    width: 20px;
+    height: 20px;
+}
 
+.orders .ListOrder .orderItem .customerInfo p,
+.confirmed .ListOrder .orderItem .customerInfo p,
+.cancelling .ListOrder .orderItem .customerInfo p{
+    font-size: 20px;
+    margin: 10px 0 20px 0;
+}
+
+.orders .ListOrder .orderItem .customerInfo .info .name,
+.confirmed .ListOrder .orderItem .customerInfo .info .name,
+.cancelling .ListOrder .orderItem .customerInfo .info .name{
+    display: flex;
+}
+
+.orders .ListOrder .orderItem .customerInfo .info .name label,
+.confirmed .ListOrder .orderItem .customerInfo .info .name label,
+.cancelling .ListOrder .orderItem .customerInfo .info .name label{
+    display: block;
+    width: 80px;
+    font-size: 17px;
+}
+
+.orders .ListOrder .orderItem .customerInfo .info .name input,
+.confirmed .ListOrder .orderItem .customerInfo .info .name input{
+    border: none ;
+    outline: none;
+    margin-left: 5px;
+    background-color: #EEFCF8;
+    font-size: 17px;
+}
+
+.cancelling .ListOrder .orderItem .customerInfo .info .name input{
+    border: none ;
+    outline: none;
+    margin-left: 5px;
+    background-color: #fbe5e5;
+    font-size: 17px;
+}
 
 
 
@@ -793,13 +1150,14 @@ body{
 
 
 
-.employeesContainer{
+.employeesContainer , .customersContainer{
     display: flex;
     min-width: 1500px;
 }
 
 
-.employeesContainer .employees{
+.employeesContainer .employees , 
+.customersContainer .customers{
     background-color: rgb(255, 255, 255);
     width: 70%;
     height: 100vh;
@@ -808,12 +1166,14 @@ body{
     padding: 30px;
     overflow: hidden;
 }
-.employeesContainer .employees.active{
+.employeesContainer .employees.active , 
+.customersContainer .customers.active{
     width: 100%;
 }
 
 
-.employeesContainer .employees .searchCreate {
+.employeesContainer .employees .searchCreate , 
+.customersContainer .customers .searchCreate {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -823,18 +1183,21 @@ body{
 
 
 
-.employeesContainer .employees .searchCreate p{
+.employeesContainer .employees .searchCreate p , 
+.customersContainer .customers .searchCreate p{
     font-size: 25px;
 }
 
-.employeesContainer .employees .searchCreate .searchAdd{
+.employeesContainer .employees .searchCreate .searchAdd , 
+.customersContainer .customers .searchCreate .searchAdd{
     background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
 }
 
 
-.employeesContainer .employees .searchCreate .searchAdd ion-icon{
+.employeesContainer .employees .searchCreate .searchAdd ion-icon , 
+.customersContainer .customers .searchCreate .searchAdd ion-icon{
     position: absolute;
     font-size: 25px;
     top: calc(100px + (40px - 25px)/2);
@@ -845,7 +1208,8 @@ body{
 
 
 
-.employeesContainer .employees .searchCreate .searchAdd input{
+.employeesContainer .employees .searchCreate .searchAdd input,
+.customersContainer .customers .searchCreate .searchAdd input{
     width: 350px;
     height: 40px ;
     border: none;
@@ -858,7 +1222,8 @@ body{
     outline: none;
 }
 
-.employeesContainer .employees .searchCreate .searchAdd button{
+.employeesContainer .employees .searchCreate .searchAdd button,
+.customersContainer .customers .searchCreate .searchAdd button{
     padding: 0 25px;
     font-size: 17px;
     border: 2px solid ;
@@ -866,7 +1231,8 @@ body{
     background-color: white;
 }
 
-.employeesContainer .employees .searchCreate .searchAdd button::before{
+.employeesContainer .employees .searchCreate .searchAdd button::before,
+.customersContainer .customers .searchCreate .searchAdd button::before{
     position: absolute;
     top: 100px;
     margin-left: -60px;
@@ -887,40 +1253,51 @@ body{
 
 
 
-.employeesContainer .employees .employeesList{
+.employeesContainer .employees .employeesList,
+.customersContainer .customers .customersList{
     margin-top: 40px;
     height: 80vh;
     overflow: hidden;
 }
 
-.employeesContainer .employees .employeesList table{
+.employeesContainer .employees .employeesList table,
+.customersContainer .customers .customersList table{
     width: 100%;
     border-collapse: collapse;
 }
 
-.employeesContainer .employees .employeesList table thead th{
+.employeesContainer .employees .employeesList table thead th,
+.customersContainer .customers .customersList table thead th{
     height: 50px;
     font-size: 18px;
     background-color: white;
     text-align: start;
 }
 
-.employeesContainer .employees .employeesList table thead th:last-child{
+.employeesContainer .employees .employeesList table thead tr th:nth-child(4){
+    width: 300px;
+}
+
+.employeesContainer .employees .employeesList table thead th:last-child,
+.customersContainer .customers .customersList table thead th:last-child{
     text-align: center;
 }
 
-.employeesContainer .employees .employeesList table tbody{
+.employeesContainer .employees .employeesList table tbody,
+.customersContainer .customers .customersList table tbody{
     overflow-y: scroll;
     display: block;
     max-height: 500px;
 }
 
-.employeesContainer .employees .employeesList table tbody::-webkit-scrollbar{
+.employeesContainer .employees .employeesList table tbody::-webkit-scrollbar,
+.customersContainer .customers .customersList table tbody::-webkit-scrollbar{
     width: 2px;
     background-color: white;
 }
 
-.employeesContainer .employees .employeesList table tr{
+.employeesContainer .employees .employeesList table tr,
+.customersContainer .customers .customersList table tr{
     height: 50px;
     width: 100%;
     display: table;
@@ -928,23 +1305,32 @@ body{
 
 }
 
-.employeesContainer .employees .employeesList table tbody tr td{
+.employeesContainer .employees .employeesList table tbody tr td,
+.customersContainer .customers .customersList table tbody tr td{
     border-bottom: 1px solid rgb(223, 223, 223);
     font-size: 17px;
     background-color: white;
 }
 
-.employeesContainer .employees .employeesList table tbody tr td:last-child{
+.employeesContainer .employees .employeesList table tbody tr td:nth-child(4){
+    width: 300px;
+    overflow: hidden;
+}
+
+.employeesContainer .employees .employeesList table tbody tr td:last-child,
+.customersContainer .customers .customersList table tbody tr td:last-child{
     text-align: center;
     font-size: 25px;
 }
 
-.employeesContainer .employees .employeesList table tbody tr td:last-child ion-icon:first-child{
+.employeesContainer .employees .employeesList table tbody tr td:last-child ion-icon:first-child,
+.customersContainer .customers .customersList table tbody tr td:last-child ion-icon:first-child{
     color: rgb(39, 136, 255);
     margin-right: 15px;
 }
 
-.employeesContainer .employees .employeesList table tbody tr td:last-child ion-icon:last-child{
+.employeesContainer .employees .employeesList table tbody tr td:last-child ion-icon:last-child,
+.customersContainer .customers .customersList table tbody tr td:last-child ion-icon:last-child{
     color: rgb(255, 67, 67);
     margin-left: 20px;
 }
@@ -958,7 +1344,8 @@ body{
 
 
 
-.employeesContainer .editCreate{
+.employeesContainer .editCreate,
+.customersContainer .editCreate{
     width: 30%;
     height: 100vh;
     background-color: rgb(255, 255, 255);
@@ -968,18 +1355,21 @@ body{
     
 }
 
-.employeesContainer .editCreate .header{
+.employeesContainer .editCreate .header,
+.customersContainer .editCreate .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 40px;
 }
 
-.employeesContainer .editCreate .header p{
+.employeesContainer .editCreate .header p,
+.customersContainer .editCreate .header p{
     font-size: 22px;
 }
 
-.employeesContainer .editCreate .header button{
+.employeesContainer .editCreate .header button,
+.customersContainer .editCreate .header button{
     display: flex;
     align-items: center;
     border: none;
@@ -989,16 +1379,19 @@ body{
 }
 
 
-.employeesContainer .editCreate .header button p{
+.employeesContainer .editCreate .header button p,
+.customersContainer .editCreate .header button p{
     margin-right:5px ;
     font-size: 17px;
 }
 
-.employeesContainer .editCreate .inputItem{
+.employeesContainer .editCreate .inputItem,
+.customersContainer .editCreate .inputItem{
     position: relative;
 }
 
-.employeesContainer .editCreate .inputItem p{
+.employeesContainer .editCreate .inputItem p,
+.customersContainer .editCreate .inputItem p{
     position: absolute;
     font-size: 17px;
     top: 10px;
@@ -1007,7 +1400,8 @@ body{
     transition: 0.4s;
 }
 
-.employeesContainer .editCreate .inputForm{
+.employeesContainer .editCreate .inputForm,
+.customersContainer .editCreate .inputForm{
     margin-top: 40px;
     padding-top: 20px;
     height: 70vh;
@@ -1019,7 +1413,11 @@ body{
 .employeesContainer .editCreate .inputItem .Phone,
 .employeesContainer .editCreate .inputItem .AdressMail,
 .employeesContainer .editCreate .inputItem .UserName,
-.employeesContainer .editCreate .inputItem .Password{
+.employeesContainer .editCreate .inputItem .Password,
+.customersContainer .editCreate .inputItem .FullName,
+.customersContainer .editCreate .inputItem .Phone,
+.customersContainer .editCreate .inputItem .AdressMail,
+.customersContainer .editCreate .inputItem .City{
     top: -10px;
     background-color: white;
     padding: 0 5px;
@@ -1028,7 +1426,8 @@ body{
 
 
 
-.employeesContainer .editCreate .inputItem input{
+.employeesContainer .editCreate .inputItem input,
+.customersContainer .editCreate .inputItem input{
     width: 100%;
     height: 40px;
     font-size: 17px;
@@ -1038,14 +1437,16 @@ body{
 
 }
 
-.employeesContainer .editCreate .btns{
+.employeesContainer .editCreate .btns,
+.customersContainer .editCreate .btns{
     display: flex;
     justify-content: space-around;
     height: 10vh;
     align-items: end;
 }
 
-.employeesContainer .editCreate .btns button{
+.employeesContainer .editCreate .btns button,
+.customersContainer .editCreate .btns button{
     display: flex;
     padding: 5px 20px;
     font-size: 17px;
@@ -1054,23 +1455,30 @@ body{
     height: 40px;
 }
 
-.employeesContainer .editCreate .btns button:first-child{
+.employeesContainer .editCreate .btns button:first-child,
+.customersContainer .editCreate .btns button:first-child{
     background-color: black;
     color: white;
 }
 
-.employeesContainer .editCreate .btns button:last-child{
+.employeesContainer .editCreate .btns button:last-child,
+.customersContainer .editCreate .btns button:last-child{
     background-color: white;
     border: 2px solid black;
 }
 
-.employeesContainer .editCreate .btns button p{
+.employeesContainer .editCreate .btns button p,
+.customersContainer .editCreate .btns button p{
     margin-right: 5px;
 }
 
-.employeesContainer .editCreate .btns button ion-icon{
+.employeesContainer .editCreate .btns button ion-icon,
+.customersContainer .editCreate .btns button ion-icon{
     font-size: 20px;
 }
+
+
+
 
 
 

@@ -1,25 +1,23 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 
 function EmployeesList({up_info}){
-    const[employee,setEmployee]=useState([
-        {
-            FirstName:'ousama',
-            LastName:'karim',
-            Phone:'06900000',
-            AdressMail:'ous@gmail.com',
-            UserName:'kaous1',
-            Password:'ok1919'
-        },
-        {
-            FirstName:'karim',
-            LastName:'ousama',
-            Phone:'069009000',
-            AdressMail:'ous@gmail.com',
-            UserName:'ous1',
-            Password:'ok1919'
-        }
-    ])
+
+
+    const[employee,setEmployee]=useState([])
+
+    useEffect(()=>{
+        getData()
+    },[])
+
+
+    const getData = async ()=>{
+        const resp = await axios.get('http://127.0.0.1:8000/api/employees')
+        setEmployee(resp.data)
+    }
+
+
     return(
         <div className="employeesList">
             <table>

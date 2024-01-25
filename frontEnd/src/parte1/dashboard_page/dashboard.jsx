@@ -3,6 +3,7 @@ import Card from "./component/card";
 import { cancelling, confirmed, mystore, orders } from "../icon";
 import BestProducts from "./component/BestProducts";
 import BestEmployees from "./component/BestEmployees";
+import { NavLink } from "react-router-dom";
 
 function Dashboard(){
     return <div className="dashboard">
@@ -16,22 +17,32 @@ function Dashboard(){
                 icon={mystore}
                 count={433}
             />
-            <Card 
-                title={"Orders"} 
-                icon={orders}
-                count={183}
-            />
-            <Card 
-                title={"Confirmed"} 
-                icon={confirmed}
-                count={123}
-            />
-            <Card 
-                title={"Cancelling"} 
-                icon={cancelling}
-                count={53}
-            />
+
+            <NavLink to='/parte1/orders'>
+                <Card 
+                    title={"Orders"} 
+                    icon={orders}
+                    count={183}
+                />
+            </NavLink>
+
+            <NavLink to='/parte1/confirmed'>
+                <Card 
+                    title={"Confirmed"} 
+                    icon={confirmed}
+                    count={123}
+                />
+            </NavLink>
+
+            <NavLink to='/parte1/cancelling'>
+                <Card 
+                    title={"Cancelling"} 
+                    icon={cancelling}
+                    count={53}
+                />
+            </NavLink>
         </div>
+
         <div className="best">
             <BestProducts/>
             <BestEmployees/>
