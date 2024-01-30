@@ -1,7 +1,7 @@
 import InputItem from "./InputItem";
 import Header from "./header";
 
-function EditCreate({type,focus,setFocus,full_view,infoEmployee,setInfoEmployee}){
+function EditCreate({type,focus,setFocus,full_view,infoEmployee,setInfoEmployee,confirm}){
 
 
 
@@ -26,7 +26,7 @@ function EditCreate({type,focus,setFocus,full_view,infoEmployee,setInfoEmployee}
                     <p>Cancel</p>
                     <ion-icon name="close-outline"></ion-icon>
                 </button>
-                <button>
+                <button onClick={confirm}>
                     <p>Confirm</p>
                     <ion-icon name="checkmark-outline"></ion-icon>
                 </button>

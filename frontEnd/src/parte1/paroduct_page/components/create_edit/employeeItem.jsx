@@ -8,4 +8,4 @@ function EmpoloyeeItem(){
     )
 }
 
-export default EmpoloyeeItem
+export default EmpoloyeeItem;

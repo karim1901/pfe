@@ -1,21 +1,16 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 
-function EmployeesList({up_info}){
+function EmployeesList({employee,up_info,getData,delete_data}){
 
 
-    const[employee,setEmployee]=useState([])
 
     useEffect(()=>{
         getData()
     },[])
 
 
-    const getData = async ()=>{
-        const resp = await axios.get('http://127.0.0.1:8000/api/employees')
-        setEmployee(resp.data)
-    }
+
 
 
     return(
@@ -36,7 +31,7 @@ function EmployeesList({up_info}){
                     {
                         employee.map((emp)=>{
                             return(
-                                <tr>
+                                <tr key={emp.id}>
                                     <td>{emp.FirstName}</td>
                                     <td>{emp.LastName}</td>
                                     <td>{emp.Phone}</td>
@@ -45,7 +40,7 @@ function EmployeesList({up_info}){
                                     <td>{emp.Password}</td>
                                     <td>
                                         <ion-icon name="repeat-outline" onClick={()=>{up_info(emp)}}></ion-icon>
-                                        <ion-icon name="trash-outline" ></ion-icon>
+                                        <ion-icon name="trash-outline" onClick={()=>{delete_data(emp.id)}} ></ion-icon>
                                     </td>
                                 </tr>
                             )

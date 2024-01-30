@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import InfoForm from "./infoForm";
 import ToEmployee from "./toEmployee";
 
-function FormProduct({active,setActive,img,setImg,infoProduct,setInfoProduct}) {
+function FormProduct({active,setActive,img,setImg,infoProduct,setInfoProduct,confirm}) {
 
   const [next,setNext]= useState(null)
 
@@ -13,6 +13,8 @@ function FormProduct({active,setActive,img,setImg,infoProduct,setInfoProduct}) {
 
     if (file) {
       setImg(URL.createObjectURL(file))
+      setInfoProduct({...infoProduct,
+        thumbnail:file})
     }
   }
 
@@ -30,10 +32,10 @@ function FormProduct({active,setActive,img,setImg,infoProduct,setInfoProduct}) {
         <ion-icon name="arrow-forward-outline" role="img" class="md hydrated"></ion-icon>
       </button>}
 
-      {next=='nextInfo' && <InfoForm setNext={setNext}  active={active} setInfoProduct={setInfoProduct} infoProduct={infoProduct}  setActive={setActive}/>}
+      {next=='nextInfo' && <InfoForm confirm={confirm} setNext={setNext}  active={active} setInfoProduct={setInfoProduct} infoProduct={infoProduct}  setActive={setActive}/>}
 
 
-      {next=='nextEmp' && <ToEmployee setNext={setNext} active={active}   setActive={setActive}/>}
+      {next=='nextEmp' && <ToEmployee setNext={setNext} active={active} setActive={setActive}/>}
 
 
 

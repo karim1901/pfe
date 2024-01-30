@@ -7,6 +7,8 @@ import axios from "axios"
 
 function Employees(){
 
+    const[employee,setEmployee]=useState([])
+
 
     const[focus,setFocus]=useState({
         FirstName:'',
@@ -23,8 +25,8 @@ function Employees(){
         Phone:'',
         AdressMail:'',
         UserName:'',
-        Password:''
-
+        Password:'',
+        id:''
     })
 
     const element = useRef()
@@ -41,7 +43,8 @@ function Employees(){
             Phone:'',
             AdressMail:'',
             UserName:'',
-            Password:''
+            Password:'',
+            id:''
         })
     }
 
@@ -56,18 +59,96 @@ function Employees(){
         setInfoEmployee(emp)
     }
 
+
+
+    const getData = async ()=>{
+        const resp = await axios.get('http://127.0.0.1:8000/api/employees')
+        setEmployee(resp.data)
+        
+    }
+
+
+
+    const send_data = async()=>{
+        const req = await axios.post('http://127.0.0.1:8000/api/employees',{
+            FirstName: infoEmployee.FirstName,
+            LastName: infoEmployee.LastName,
+            Phone: infoEmployee.Phone,
+            AdressMail: infoEmployee.AdressMail,
+            UserName: infoEmployee.UserName,
+            Password: infoEmployee.Password
+        })  ;
+
+        setInfoEmployee({
+            FirstName:'',
+            LastName:'',
+            Phone:'',
+            AdressMail:'',
+            UserName:'',
+            Password:'',
+            id:''
+        })
+
+        getData()
+
+        full_view()
+    }
+
+    const modify_data= async()=>{
+        
+         await axios.put(`http://127.0.0.1:8000/api/employees/${infoEmployee.id}`,{
+            FirstName: infoEmployee.FirstName,
+            LastName: infoEmployee.LastName,
+            Phone: infoEmployee.Phone,
+            AdressMail: infoEmployee.AdressMail,
+            UserName: infoEmployee.UserName,
+            Password: infoEmployee.Password
+        })  ;
+
+        
+        setInfoEmployee({
+            FirstName:'',
+            LastName:'',
+            Phone:'',
+            AdressMail:'',
+            UserName:'',
+            Password:'',
+            id:''
+        })
+
+        getData()
+
+        full_view()
+    }
+
+    const delete_data=async(id)=>{
+
+        await axios.delete(`http://127.0.0.1:8000/api/employees/${id}`)
+
+        setInfoEmployee({
+            FirstName:'',
+            LastName:'',
+            Phone:'',
+            AdressMail:'',
+            UserName:'',
+            Password:'',
+            id:''
+        })
+        getData()
+    }
+
     return (
         <div className="employeesContainer">
             <div ref={element} className="employees active">
                 <SearchCreate add_click={add_click}/>
-                <EmployeesList up_info={up_info}/>
+                <EmployeesList employee={employee} setEmployee={setEmployee} delete_data={delete_data} getData={getData} up_info={up_info}/>
             </div>
 
             {showEdit=='Create' ?
-             <EditCreate type='Create' setInfoEmployee={setInfoEmployee} infoEmployee={infoEmployee} full_view={full_view} focus={focus} setFocus={setFocus}/>
+             <EditCreate type='Create' confirm={send_data} setInfoEmployee={setInfoEmployee} infoEmployee={infoEmployee} full_view={full_view} focus={focus} setFocus={setFocus}/>
              :(
                 showEdit=='Edit' ? 
-                <EditCreate type='Edit' setInfoEmployee={setInfoEmployee} infoEmployee={infoEmployee} full_view={full_view} focus={focus} setFocus={setFocus}/>
+                <EditCreate type='Edit' confirm={modify_data} setInfoEmployee={setInfoEmployee} infoEmployee={infoEmployee} full_view={full_view} focus={focus} setFocus={setFocus}/>
                 : null
              )
             }

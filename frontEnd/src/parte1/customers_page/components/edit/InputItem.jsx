@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 
 
-function InputItem({placeholder, setFocus ,title,value ,setInfoCustomer,infoCustomer }){
+function InputItem({placeholder, setFocus ,title,value ,setInfoCustomers,infoCustomers }){
 
     useEffect(()=>{
         if(value != ''){
@@ -37,8 +37,8 @@ function InputItem({placeholder, setFocus ,title,value ,setInfoCustomer,infoCust
     }
 
     const onchangeHandler=(e)=>{
-        setInfoCustomer({
-            ...infoCustomer,
+        setInfoCustomers({
+            ...infoCustomers,
             [e.target.name]: e.target.value
         }
             

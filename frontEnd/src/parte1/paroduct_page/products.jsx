@@ -23,7 +23,8 @@ function Products(){
         stock:'',
         pricePurchase:'',
         priceTaxes:'',
-        price:''
+        price:'',
+        id:''
     })
 
     const [img, setImg] = useState('');
@@ -55,7 +56,8 @@ function Products(){
             stock:'',
             pricePurchase:'',
             priceTaxes:'',
-            price:''
+            price:'',
+            id:''
         })
         setImg('')
 
@@ -69,11 +71,45 @@ function Products(){
 
 
     const getData = async ()=>{
-        const resp = await axios.get('https://dummyjson.com/products')
-        setProductsData(resp.data.products)
+        const resp = await axios.get('http://127.0.0.1:8000/api/products')
+        setProductsData(resp.data)
     }
 
     
+    const send_data = async()=>{
+        const form_data = new FormData()
+
+        setInfoProduct({...infoProduct,description:'asdfghjklpoiuytre'})
+        form_data.append('thumbnail',infoProduct.thumbnail)
+        form_data.append('title',infoProduct.title)
+        form_data.append('description',infoProduct.description)
+        form_data.append('category',infoProduct.category)
+        form_data.append('stock',infoProduct.stock)
+        form_data.append('pricePurchase',infoProduct.pricePurchase)
+        form_data.append('priceTaxes',infoProduct.priceTaxes)
+        form_data.append('price',infoProduct.price)
+
+        console.log(infoProduct)
+        await axios.post('http://127.0.0.1:8000/api/products',form_data,{
+            headers:{
+                'Content-Type':'multipart/form-data'
+            }
+        })
+
+        setInfoProduct({
+            thumbnail:'',
+            title:'',
+            description:'',
+            category:'',
+            stock:'',
+            pricePurchase:'',
+            priceTaxes:'',
+            price:'',
+            id:''
+        })
+
+        getData()
+    }
 
     const onshow=(e,product)=>{
         onclick1(e)   
@@ -90,9 +126,9 @@ function Products(){
             </div>
 
             {showEdit === 'create' ? (
-                <Edit infoProduct={infoProduct} img={img} setImg={setImg} setInfoProduct={setInfoProduct}  active={active} title={'Create Products'} setActive={setActive} onclick2={onclick2}/>
+                <Edit confirm={send_data} infoProduct={infoProduct} img={img} setImg={setImg} setInfoProduct={setInfoProduct}  active={active} title={'Create Products'} setActive={setActive} onclick2={onclick2}/>
             ) :(showEdit === 'edit'?
-                <Edit  infoProduct={infoProduct} img={img} setImg={setImg}   setInfoProduct={setInfoProduct} active={active} title={'Edit Products'} setActive={setActive} onclick2={onclick2}/>
+                <Edit confirm={send_data} infoProduct={infoProduct} img={img} setImg={setImg} setInfoProduct={setInfoProduct} active={active} title={'Edit Products'} setActive={setActive} onclick2={onclick2}/>
              :null)}
 
            

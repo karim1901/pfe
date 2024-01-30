@@ -25,6 +25,10 @@ body{
 
 
 
+table tr td{
+    overflow: hidden;
+}
+
 .navBar{
     padding: 0px 30px;
     margin: 5px;
@@ -1274,9 +1278,17 @@ body{
     text-align: start;
 }
 
-.employeesContainer .employees .employeesList table thead tr th:nth-child(4){
-    width: 300px;
+
+.employeesContainer .employees .employeesList table thead tr th:nth-child(3){
+    width: 15%;
 }
+
+
+.employeesContainer .employees .employeesList table thead tr th:nth-child(4){
+    width: 30%;
+}
+
+
 
 .employeesContainer .employees .employeesList table thead th:last-child,
 .customersContainer .customers .customersList table thead th:last-child{
@@ -1312,8 +1324,13 @@ body{
     background-color: white;
 }
 
+.employeesContainer .employees .employeesList table tbody tr td:nth-child(3){
+    width: 15%;
+    overflow: hidden;
+}
+
 .employeesContainer .employees .employeesList table tbody tr td:nth-child(4){
-    width: 300px;
+    width: 30%;
     overflow: hidden;
 }
 
@@ -1416,7 +1433,7 @@ body{
 .employeesContainer .editCreate .inputItem .Password,
 .customersContainer .editCreate .inputItem .FullName,
 .customersContainer .editCreate .inputItem .Phone,
-.customersContainer .editCreate .inputItem .AdressMail,
+.customersContainer .editCreate .inputItem .Address,
 .customersContainer .editCreate .inputItem .City{
     top: -10px;
     background-color: white;

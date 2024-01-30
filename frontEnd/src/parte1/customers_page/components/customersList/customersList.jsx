@@ -1,23 +1,14 @@
-import { useState } from "react";
+import { useEffect } from "react";
 
 
-function CustomersList(){
+function CustomersList({customers,setCustomers,delete_cus,getCustomer}){
 
-    const[customers,setCustomers]=useState([
-        {
-            FullName:'karim Oussama',
-            Phone:'06900000',
-            AdressMail:'ous@gmail.com',
-            City:'Agadir',
 
-        },
-        {
-            FullName:'karim Oussama',
-            Phone:'069009000',
-            AdressMail:'ous@gmail.com',
-            City:'Agadir',
-        }
-    ])
+    useEffect(()=>{
+        getCustomer()
+    },[])
+
+
     return(
         <div className="customersList">
             <table>
@@ -25,7 +16,7 @@ function CustomersList(){
                     <tr>
                         <th>Full Name</th>
                         <th>Phone</th>
-                        <th>Adress Email</th>
+                        <th>Address</th>
                         <th>City</th>
                         <th>Actions</th>
                     </tr> 
@@ -34,13 +25,13 @@ function CustomersList(){
                     {
                         customers.map((cus)=>{
                             return(
-                                <tr>
+                                <tr key={cus.id}>
                                     <td>{cus.FullName}</td>
                                     <td>{cus.Phone}</td>
-                                    <td>{cus.AdressMail}</td>
+                                    <td>{cus.Address}</td>
                                     <td>{cus.City}</td>
                                     <td>
-                                        <ion-icon name="trash-outline" ></ion-icon>
+                                        <ion-icon name="trash-outline" onClick={()=>{delete_cus(cus.id)}}></ion-icon>
                                     </td>
                                 </tr>
                             )
