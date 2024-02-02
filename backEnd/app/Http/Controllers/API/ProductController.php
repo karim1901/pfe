@@ -58,6 +58,7 @@ class ProductController extends Controller
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required',
             'description' => 'required',
+            'category' => 'required',
             'stock' => 'required|integer',
             'pricePurchase' => 'required|numeric',
             'priceTaxes' => 'required|numeric',
@@ -68,11 +69,20 @@ class ProductController extends Controller
             $thumbnailPath = $request->file('thumbnail')->store('images', 'public');
     
             // Add the path to the data_product array
-            $data_product['thumbnail'] = $thumbnailPath;
+            $data_product['thumbnail'] = 'http://127.0.0.1:8000/storage/'.$thumbnailPath;
         }
     
         // Create a new Product using the validated data
-        Product::create($data_product);
+        Product::create([
+            'thumbnail' =>  $data_product['thumbnail'] ,
+            'title' => $request->title,
+            'description' => $request->description ,
+            'category'=> $request->category,
+            'stock' =>  $request->stock,
+            'pricePurchase' => $request->pricePurchase ,
+            'priceTaxes' =>$request->priceTaxes ,
+            'price' =>$request->price ,
+        ]);
 
     }
 
