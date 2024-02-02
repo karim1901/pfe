@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
+import {  useEffect, useRef, useState } from "react"
 import InputItem from "./inputItem"
 
 
 
-function InfoForm({setNext,active,setActive,infoProduct,setInfoProduct,confirm}){
+function InfoForm({setNext,active,setActive,infoProduct,setInfoProduct,confirm,onclick2}){
 
     const [focus,setFocus] = useState({
         title:'',
@@ -14,6 +14,12 @@ function InfoForm({setNext,active,setActive,infoProduct,setInfoProduct,confirm})
         priceTaxes:'',
         price:''
     })
+
+
+    const text_desc = useRef()
+
+
+
 
     const onclick =()=>{
         setNext('nextEmp')
@@ -52,9 +58,29 @@ function InfoForm({setNext,active,setActive,infoProduct,setInfoProduct,confirm})
     
 
 
+
+    // useEffect(()=>{
+
+    //     // if (text_desc.current.value != "") {
+    //     //     setFocus(prev =>{
+    //     //         return {
+    //     //             ...prev,
+    //     //             [text_desc.current.name] : text_desc.current.name
+    //     //           }
+    //     //     })
+    //     // }
+
+    //     console.log(text_desc.current.getAttribute("value"))
+    // },[text_desc.current])
+
+
+
+
+
     const click_next =()=>{
         confirm()
-        onclick()
+        // onclick()
+        onclick2()
     }
 
 
@@ -69,12 +95,12 @@ function InfoForm({setNext,active,setActive,infoProduct,setInfoProduct,confirm})
                 </div>
 
                 <div className="inputItem">
-                    <textarea name="description" onFocus={onfocus} onBlur={onblur} ></textarea>
+                    <textarea ref={text_desc} name="description" onFocus={onfocus} onBlur={onblur} onChange={onchngeInput}></textarea>
                     <p className={focus.description}>Description</p>
                 </div>
                 
                 <div className="inputItem">
-                    <InputItem value={infoProduct.category} focus={focus} onfocus={onfocus}  onblur={onblur}   onchngeInput={onchngeInput} setFocus={setFocus} name={'category'}  />
+                    <InputItem value={infoProduct.category} focus={focus} onfocus={onfocus}  onblur={onblur} onchngeInput={onchngeInput} setFocus={setFocus} name={'category'}  />
                     <p className={focus.category}>Category</p>
                 </div>
 

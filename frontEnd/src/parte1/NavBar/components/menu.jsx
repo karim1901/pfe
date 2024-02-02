@@ -19,20 +19,20 @@ function Menu(){
 
     return <div className="menu">
         <ul>
-            <NavLink  to='/parte1/dashboard' >
+            <NavLink  to='/marchant/dashboard' >
             <li>
                 {dashboard}
                 <p>Dashboard</p>
             </li>
             </NavLink>
-            <NavLink  to='/parte1/products' >
+            <NavLink  to='/marchant/products' >
             <li>
                 <ion-icon name="cube-outline"></ion-icon>
                 <p>Products</p>
             </li>
             </NavLink>
 
-            <NavLink to='/parte1/customers'>
+            <NavLink to='/marchant/customers'>
                 <li>
                     <ion-icon name="people-outline"></ion-icon>
                     <p>Customers</p>
@@ -45,7 +45,7 @@ function Menu(){
                 </svg>
                 <p>Analtics</p>
             </li>
-            <NavLink to='/parte1/employees' >
+            <NavLink to='/marchant/employees' >
                 <li>
                     <ion-icon name="people-circle-outline"></ion-icon>
                     <p>Employees</p>

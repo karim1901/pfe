@@ -9,7 +9,7 @@ function Edit({onclick2,active,setImg,img,setActive,title ,infoProduct,setInfoPr
         <div className="edit">
             <Header onclick2 = {onclick2} title={title} />
             <Choose active={active} />
-            <FormProduct confirm={confirm} img={img} setImg={setImg} active={active} setActive={setActive} infoProduct={infoProduct} setInfoProduct={setInfoProduct}  />
+            <FormProduct onclick2={onclick2} confirm={confirm} img={img} setImg={setImg} active={active} setActive={setActive} infoProduct={infoProduct} setInfoProduct={setInfoProduct}  />
         </div>
     )
 }

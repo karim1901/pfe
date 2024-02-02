@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import InfoForm from "./infoForm";
 import ToEmployee from "./toEmployee";
 
-function FormProduct({active,setActive,img,setImg,infoProduct,setInfoProduct,confirm}) {
+function FormProduct({active,setActive,img,setImg,infoProduct,setInfoProduct,confirm,onclick2}) {
 
   const [next,setNext]= useState(null)
 
@@ -32,7 +32,7 @@ function FormProduct({active,setActive,img,setImg,infoProduct,setInfoProduct,con
         <ion-icon name="arrow-forward-outline" role="img" class="md hydrated"></ion-icon>
       </button>}
 
-      {next=='nextInfo' && <InfoForm confirm={confirm} setNext={setNext}  active={active} setInfoProduct={setInfoProduct} infoProduct={infoProduct}  setActive={setActive}/>}
+      {next=='nextInfo' && <InfoForm onclick2={onclick2} confirm={confirm} setNext={setNext}  active={active} setInfoProduct={setInfoProduct} infoProduct={infoProduct}  setActive={setActive}/>}
 
 
       {next=='nextEmp' && <ToEmployee setNext={setNext} active={active} setActive={setActive}/>}

@@ -8,12 +8,16 @@ import axios from "axios";
 
 function Products(){
 
+    const[onSearch,setOnSearch]=useState('')
 
+    const[searchCategory,setSearchCategory]=useState('')
 
     const [productsData ,setProductsData] = useState([])
 
+
     const products = useRef(null)
     const [showEdit,setShowEdit] = useState(null)
+
     
     const [infoProduct,setInfoProduct] =useState({
         thumbnail:'',
@@ -79,7 +83,6 @@ function Products(){
     const send_data = async()=>{
         const form_data = new FormData()
 
-        setInfoProduct({...infoProduct,description:'asdfghjklpoiuytre'})
         form_data.append('thumbnail',infoProduct.thumbnail)
         form_data.append('title',infoProduct.title)
         form_data.append('description',infoProduct.description)
@@ -90,7 +93,16 @@ function Products(){
         form_data.append('price',infoProduct.price)
 
         console.log(infoProduct)
-        await axios.post('http://127.0.0.1:8000/api/products',form_data,{
+        await axios.post('http://127.0.0.1:8000/api/products',{
+            thumbnail:infoProduct.thumbnail,
+            title:infoProduct.title,
+            description:infoProduct.description,
+            category:infoProduct.category,
+            stock:infoProduct.stock,
+            pricePurchase:infoProduct.pricePurchase,
+            priceTaxes:infoProduct.priceTaxes,
+            price:infoProduct.price
+        },{
             headers:{
                 'Content-Type':'multipart/form-data'
             }
@@ -120,15 +132,15 @@ function Products(){
     return (
         <div className="productsContainer">
             <div ref={products} className='products active'>
-                <SearchCreate onclick1={onclick1} />
-                <Category />
-                <ProductsList productsData={productsData} onshow={onshow} />
+                <SearchCreate onclick1={onclick1} onSearch={onSearch} setOnSearch={setOnSearch} />
+                <Category searchCategory={searchCategory} setSearchCategory={setSearchCategory} productsData={productsData}/>
+                <ProductsList searchCategory={searchCategory} onSearch={onSearch} productsData={productsData} onshow={onshow} />
             </div>
 
             {showEdit === 'create' ? (
-                <Edit confirm={send_data} infoProduct={infoProduct} img={img} setImg={setImg} setInfoProduct={setInfoProduct}  active={active} title={'Create Products'} setActive={setActive} onclick2={onclick2}/>
+                <Edit confirm={send_data} infoProduct={infoProduct} img={img} setImg={setImg} setInfoProduct={setInfoProduct}  active={active} title={'Create Products'} setActive={setActive} onclick2={onclick2} />
             ) :(showEdit === 'edit'?
-                <Edit confirm={send_data} infoProduct={infoProduct} img={img} setImg={setImg} setInfoProduct={setInfoProduct} active={active} title={'Edit Products'} setActive={setActive} onclick2={onclick2}/>
+                <Edit confirm={send_data} infoProduct={infoProduct} img={img} setImg={setImg} setInfoProduct={setInfoProduct} active={active} title={'Edit Products'} setActive={setActive} onclick2={onclick2} />
              :null)}
 
            
