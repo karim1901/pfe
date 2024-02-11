@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 
-function EmployeesList({employee,up_info,getData,delete_data}){
+function EmployeesList({employee,up_info,getData,delete_data,search}){
 
 
 
@@ -29,7 +29,9 @@ function EmployeesList({employee,up_info,getData,delete_data}){
                 </thead>
                 <tbody>
                     {
-                        employee.map((emp)=>{
+                        employee
+                        .filter(emp=>emp.FirstName.toLowerCase().includes(search.toLowerCase()))
+                        .map((emp)=>{
                             return(
                                 <tr key={emp.id}>
                                     <td>{emp.FirstName}</td>

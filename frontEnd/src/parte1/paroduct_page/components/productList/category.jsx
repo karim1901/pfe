@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 
 function Category({productsData,searchCategory,setSearchCategory}){
 
+    
+
     const onSearch_byCategory=(e)=>{
         setSearchCategory(e.target.getAttribute('name'))
+
+        document.querySelectorAll('.category ul li').forEach(item => {
+            item.classList.remove('active');
+        });
+
+        e.target.classList.add('active')
+
     }
 
     const all_products=()=>{
@@ -12,12 +21,14 @@ function Category({productsData,searchCategory,setSearchCategory}){
     return(
         <div className="category">
             <ul>
-                <li onClick={all_products}>All Products </li>
+                <li className='active' onClick={all_products} >
+                    <p>All Products</p>
+                </li>
                 
-                    {[...new Set(productsData.map(product => product.category))].map((category) => {
-                        category = category.charAt(0).toUpperCase() + category.slice(1);
-                        return <li key={category} name={category} onClick={onSearch_byCategory}>{category}</li>
-                    })}
+                {[...new Set(productsData.map(product => product.category))].map((category) => {
+                    category = category.charAt(0).toUpperCase() + category.slice(1);
+                    return <li key={category} name={category} onClick={onSearch_byCategory}>{category}</li>
+                })}
                 
             </ul> 
 

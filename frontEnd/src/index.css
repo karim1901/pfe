@@ -50,7 +50,14 @@ table tr td{
     justify-content: space-between;
     border-radius: 30px;
     overflow: hidden;
+    min-height: 60px;
 }
+
+.navBar a{
+    color: black;
+    text-decoration: none;
+}
+
 
 .navBar .logo{
     width: 130px;
@@ -71,9 +78,6 @@ table tr td{
 }
 
 
-
-
-
 .navBar .menu ul li{
     display: flex;
     align-items: center;
@@ -85,6 +89,13 @@ table tr td{
 .navBar .menu ul li p{
     margin-left: 5px;
 }
+
+.navBar .menu ul .active li {
+    border-bottom: 3px solid;
+}
+
+
+
 
 
 .navBar .profile {
@@ -101,12 +112,30 @@ table tr td{
     width: 300px;
 }
 
+
+
 .navBar .profile .img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     margin-right: 10px;
     border-radius: 20px;
 }
+
+
+.navBar .profile .img ion-icon{
+    font-size: 25px;
+    border-radius: 20px;
+}
+
+
+.navBar .profile .dropDown{
+    background-color: aquamarine;
+    width: 400px;
+}
+
 
 .navBar .profile .img img{
     width: 100%;
@@ -114,19 +143,36 @@ table tr td{
     border-radius: 20px;
 }
 
-.navBar a{
-    color: black;
-    text-decoration: none;
+
+
+
+
+
+
+
+
+.navBar .profileEmp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px ;
+    height: 40px;
+    background-color: aqua;
 }
 
-
-
-.navBar .menu ul .active li {
-    border-bottom: 3px solid;
+.navBar .profileEmp .empInfo{
+    display: flex;
+    align-items: center;
 }
 
+.navBar .profileEmp .empInfo p{
+    
+}
 
-
+.navBar .profileEmp .img{
+    font-size: 20px;
+    margin-right: 15px;
+}
 
 
 
@@ -184,6 +230,13 @@ table tr td{
 .dashboard .cards .card div p{
     font-size: 25px;
 }
+
+
+
+
+
+
+
 
 
 
@@ -706,6 +759,19 @@ table tr td{
 .productsContainer .products .category ul{
     list-style-type: none;
     display: flex;
+    width: 80%;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.productsContainer .products .category ul::-webkit-scrollbar{
+    height: 0;
+}
+
+.productsContainer .products .category ul .active{
+    background-color: rgb(230, 242, 253);
+    border-radius: 20px ;
+    color: black;
 }
 
 .productsContainer .products .category ul li{
@@ -718,12 +784,25 @@ table tr td{
     cursor:default;
 }
 
+
 .productsContainer .products .category ul li:hover{
     background-color: rgb(230, 242, 253);
     border-radius: 20px ;
     transition: 0.4s;
     color: black;
 }
+
+
+.productsContainer .products .category ul li p{
+    width: 100px;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+
+
+
 
 .productsContainer .products .category button{
     padding: 0 10px;
@@ -1330,7 +1409,6 @@ table tr td{
     width: 100%;
     display: table;
     table-layout: fixed;
-
 }
 
 .employeesContainer .employees .employeesList table tbody tr td,
@@ -1356,8 +1434,7 @@ table tr td{
     font-size: 25px;
 }
 
-.employeesContainer .employees .employeesList table tbody tr td:last-child ion-icon:first-child,
-.customersContainer .customers .customersList table tbody tr td:last-child ion-icon:first-child{
+.employeesContainer .employees .employeesList table tbody tr td:last-child ion-icon:first-child{
     color: rgb(39, 136, 255);
     margin-right: 15px;
 }
@@ -1372,6 +1449,41 @@ table tr td{
 
 
 
+.customersContainer .customers .customersList table thead tr th:nth-child(1){
+    width: 18%;
+}
+
+.customersContainer .customers .customersList table thead tr th:nth-child(2){
+    width: 20%;
+}
+
+.customersContainer .customers .customersList table thead tr th:nth-child(3){
+    width: 40%;
+}
+
+.customersContainer .customers .customersList table thead tr th:nth-child(4){
+    width: 15%;
+}
+
+.customersContainer .customers .customersList table tbody tr td:nth-child(1){
+    width: 18%;
+    overflow: hidden;
+}
+
+.customersContainer .customers .customersList table tbody tr td:nth-child(2){
+    width: 20%;
+    overflow: hidden;
+}
+
+.customersContainer .customers .customersList table tbody tr td:nth-child(3){
+    width: 40%;
+    overflow: hidden;
+}
+
+.customersContainer .customers .customersList table tbody tr td:nth-child(4){
+    width: 15%;
+    overflow: hidden;
+}
 
 
 

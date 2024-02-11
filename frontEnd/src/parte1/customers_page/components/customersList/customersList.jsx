@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 
 
-function CustomersList({customers,setCustomers,delete_cus,getCustomer}){
+function CustomersList({customers,setCustomers,delete_cus,getCustomer,search}){
 
 
     useEffect(()=>{
         getCustomer()
-    },[])
+    },[]) 
 
 
     return(
@@ -23,7 +23,9 @@ function CustomersList({customers,setCustomers,delete_cus,getCustomer}){
                 </thead>
                 <tbody>
                     {
-                        customers.map((cus)=>{
+                        customers
+                        .filter(cus=>cus.FullName.toLowerCase().includes(search.toLowerCase()))
+                        .map((cus)=>{
                             return(
                                 <tr key={cus.id}>
                                     <td>{cus.FullName}</td>

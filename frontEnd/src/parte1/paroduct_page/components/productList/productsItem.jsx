@@ -16,6 +16,6 @@ function ProductItem({product,onshow}){
             </div>
         </div>
     )
-}
+} 
 
 export default ProductItem

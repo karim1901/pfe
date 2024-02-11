@@ -7,6 +7,8 @@ import axios from "axios"
 
 function Employees(){
 
+    const[search,setSearch]=useState('')
+
     const[employee,setEmployee]=useState([])
 
 
@@ -120,7 +122,7 @@ function Employees(){
 
         full_view()
     }
-
+ 
     const delete_data=async(id)=>{
 
         await axios.delete(`http://127.0.0.1:8000/api/employees/${id}`)
@@ -140,8 +142,8 @@ function Employees(){
     return (
         <div className="employeesContainer">
             <div ref={element} className="employees active">
-                <SearchCreate add_click={add_click}/>
-                <EmployeesList employee={employee} setEmployee={setEmployee} delete_data={delete_data} getData={getData} up_info={up_info}/>
+                <SearchCreate add_click={add_click} setSearch={setSearch}/>
+                <EmployeesList employee={employee} setEmployee={setEmployee} delete_data={delete_data} getData={getData} up_info={up_info} search={search}/>
             </div>
 
             {showEdit=='Create' ?

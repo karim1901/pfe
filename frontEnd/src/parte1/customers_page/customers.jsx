@@ -7,6 +7,8 @@ import axios from "axios"
 
 function Customers(){
 
+    const[search,setSearch]=useState('')
+
     const[customers,setCustomers]=useState([])
 
     const[focus,setFocus]=useState({
@@ -89,14 +91,14 @@ function Customers(){
             City:'',
             id:''
         })
-        getCustomer()
+        getCustomer() 
     }
 
     return (
         <div className="customersContainer">
             <div ref={element} className="customers active">
-                <SearchCreate add_click={add_click}/>
-                <CustomersList customers={customers} setCustomers={setCustomers} delete_cus={delete_cus} getCustomer={getCustomer}/>
+                <SearchCreate add_click={add_click} search={search} setSearch={setSearch}/>
+                <CustomersList customers={customers} setCustomers={setCustomers} delete_cus={delete_cus} getCustomer={getCustomer} search={search}/>
             </div>
 
             {showEdit=='Create' ?

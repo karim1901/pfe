@@ -16,17 +16,17 @@ function ProductsList({onshow,productsData,onSearch,searchCategory}){
             .map(product => <ProductItem product={product} key={product.id} onshow={onshow} />)
             } */}
             {
-  productsData
-    .filter(product => product.title.toLowerCase().includes(onSearch.toLowerCase()))
-    .filter(product => product.category.toLowerCase().includes(searchCategory.toLowerCase()))
-    .map(product => (
-      <ProductItem
-        key={product.id}
-        product={product}
-        onshow={onshow}
-      />
-    ))
-}
+            productsData
+              .filter(product => product.title.toLowerCase().includes(onSearch.toLowerCase()))
+              .filter(product => product.category.toLowerCase().includes(searchCategory.toLowerCase()))
+              .map(product => (
+                <ProductItem
+                  key={product.id}
+                  product={product}
+                  onshow={onshow}
+                />
+              ))
+          }
 
 
             

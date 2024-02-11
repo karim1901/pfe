@@ -1,8 +1,10 @@
 
 
-function SearchCreate({add_click}){
+function SearchCreate({add_click,setSearch}){
 
-
+    const onHandlerChange=(e)=>{
+        setSearch(e.target.value)
+    }
 
     return (
         <div className="searchCreate">
@@ -10,7 +12,7 @@ function SearchCreate({add_click}){
             <div className="searchAdd ">
                 <div>
                     <ion-icon name="search-outline"></ion-icon>
-                    <input type="text" placeholder="Search Employee..."/>
+                    <input type="text" placeholder="Search Employee..." onChange={onHandlerChange}/>
                 </div>
                 <button onClick={add_click}>Add New Employee + </button>
             </div>
@@ -18,4 +20,4 @@ function SearchCreate({add_click}){
     )
 }
 
-export default SearchCreate
+export default SearchCreate;

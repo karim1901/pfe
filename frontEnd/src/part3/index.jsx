@@ -1,11 +1,11 @@
 import React from "react";
 
 
-function IndexParte2(){
+function IndexParte3(){
     return <div className="client">
         <h1>this is client page</h1>
     </div>
 }
 
 
-export default IndexParte2
+export default IndexParte3

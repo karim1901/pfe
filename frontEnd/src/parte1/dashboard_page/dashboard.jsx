@@ -18,15 +18,15 @@ function Dashboard(){
                 count={433}
             />
 
-            <NavLink to='/parte1/orders'>
+            <NavLink to='/marchant/orders'>
                 <Card 
                     title={"Orders"} 
                     icon={orders}
                     count={183}
                 />
             </NavLink>
-
-            <NavLink to='/parte1/confirmed'>
+ 
+            <NavLink to='/marchant/confirmed'>
                 <Card 
                     title={"Confirmed"} 
                     icon={confirmed}
@@ -34,7 +34,7 @@ function Dashboard(){
                 />
             </NavLink>
 
-            <NavLink to='/parte1/cancelling'>
+            <NavLink to='/marchant/cancelling'>
                 <Card 
                     title={"Cancelling"} 
                     icon={cancelling}
