@@ -1,0 +1,102 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --orange:#ff811a;
+    --orange2:#ffdec3;
+    --orange3:#7e522f;
+    --white:#fff;
+    --gray:#f5f5f5;
+    --black1:#222;
+    --black2:#999;
+}
+
+body{
+    font-family:sans-serif ;
+}
+
+.app .topCommant{
+    background-color:var(--orange2) ;
+    color: var(--orange3);
+    padding: 5px;
+    text-align: center;
+}
+
+.indexStore{
+    /* background-color: gold; */
+}
+
+.indexStore .navbar{
+    background-color:var(--white);
+    width: 90%;
+    margin: auto;
+    min-width: 1500px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.indexStore .navbar .logo p{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.indexStore .navbar .menu{
+    /* background-color: #999; */
+
+}
+
+.indexStore .navbar .menu ul{
+    list-style-type: none;
+    display: flex;
+
+}
+
+.indexStore .navbar .menu ul li{
+    background-color: var(--white);
+    padding: 10px 50px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.indexStore .navbar .userTooles{
+    height: 20%;
+}
+
+.indexStore .navbar .userTooles svg{
+    width: 30px;
+    height: 20px;
+    margin: 0;
+    background-color: var(--white);
+}
+
+
+
+
+.home{
+    /* background-color: #775959; */
+}
+
+.home .adverHeader{
+    background-color:darkblue ;
+    width: 90%;
+    min-width: 1500px;
+    margin: auto;
+    height: 50vh;
+    border-radius: 20px;
+}
+
+.home .adverHeader img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
